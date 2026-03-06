@@ -1,0 +1,94 @@
+/* =============================================
+   Custom Overrides - Post AdminMart Cleanup
+   Corrige los offsets que dependían del app-topstrip
+   ============================================= */
+
+/* El header ya no necesita desplazarse por el topstrip */
+.app-header {
+  top: 0 !important;
+}
+
+@media (max-width: 991.98px) {
+  .app-header {
+    top: 0 !important;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .app-header {
+    top: 0 !important;
+  }
+}
+
+/* El sidebar ya no necesita desplazarse por el topstrip */
+#main-wrapper[data-layout="vertical"][data-sidebar-position="fixed"]
+  .left-sidebar {
+  top: 0 !important;
+}
+
+@media (max-width: 1199px) {
+  #main-wrapper[data-layout="vertical"][data-sidebartype="mini-sidebar"]
+    .left-sidebar,
+  #main-wrapper[data-layout="vertical"][data-sidebartype="full"] .left-sidebar {
+    top: 0 !important;
+  }
+}
+
+/* Reducir el padding-top del contenido (era 180px por el topstrip + header) */
+.body-wrapper .container-fluid,
+.body-wrapper .container-sm,
+.body-wrapper .container-md,
+.body-wrapper .container-lg,
+.body-wrapper .container-xl,
+.body-wrapper .container-xxl {
+  padding-top: 100px !important;
+}
+
+@media (max-width: 991.98px) {
+  .body-wrapper .container-fluid,
+  .body-wrapper .container-sm,
+  .body-wrapper .container-md,
+  .body-wrapper .container-lg,
+  .body-wrapper .container-xl,
+  .body-wrapper .container-xxl {
+    padding-top: 100px !important;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .body-wrapper .container-fluid,
+  .body-wrapper .container-sm,
+  .body-wrapper .container-md,
+  .body-wrapper .container-lg,
+  .body-wrapper .container-xl,
+  .body-wrapper .container-xxl {
+    padding-top: 90px !important;
+  }
+}
+
+/* Con header fijo, mantener el padding correcto del body-wrapper interno */
+#main-wrapper[data-layout="vertical"][data-header-position="fixed"]
+  .body-wrapper
+  > .container-fluid,
+#main-wrapper[data-layout="vertical"][data-header-position="fixed"]
+  .body-wrapper
+  > .container-sm,
+#main-wrapper[data-layout="vertical"][data-header-position="fixed"]
+  .body-wrapper
+  > .container-md,
+#main-wrapper[data-layout="vertical"][data-header-position="fixed"]
+  .body-wrapper
+  > .container-lg,
+#main-wrapper[data-layout="vertical"][data-header-position="fixed"]
+  .body-wrapper
+  > .container-xl,
+#main-wrapper[data-layout="vertical"][data-header-position="fixed"]
+  .body-wrapper
+  > .container-xxl {
+  padding-top: 100px !important;
+}
+
+/* Ajustar altura del scroll del sidebar (ya sin el topstrip de 72px) */
+.left-sidebar .scroll-sidebar {
+  height: calc(100vh - 70px) !important;
+}
