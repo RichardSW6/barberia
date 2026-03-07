@@ -46,6 +46,13 @@ $paginaActual = basename($_SERVER['PHP_SELF']);
                         <span class="hide-menu">Reservas</span>
                     </a>
                 </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link <?= ($paginaActual == 'empleados.php') ? 'active' : '' ?>"
+                        href="./empleados.php" aria-expanded="false">
+                        <i class="ti ti-user"></i>
+                        <span class="hide-menu">Empleados</span>
+                    </a>
+                </li>
 
                 <li><span class="sidebar-divider lg"></span></li>
 
