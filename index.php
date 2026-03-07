@@ -14,8 +14,7 @@
   <!--  Body Wrapper -->
   <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
     data-sidebar-position="fixed" data-header-position="fixed">
-    <?php require_once 'includes/navbar.php'; ?>
-    <div class="body-wrapper">
+    <?php require_once 'includes/navbar.php'; ?>
     <div class="body-wrapper-inner">
         <div class="container-fluid">
           <!--  Row 1 -->
