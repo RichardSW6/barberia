@@ -4,14 +4,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Modernize Free Bootstrap Admin Template</title>
+  <title>Inicio de Sesión</title>
   <link rel="shortcut icon" type="image/png" href="assets/images/logos/favicon.png" />
   <link rel="stylesheet" href="assets/css/styles.min.css" />
   <link rel="stylesheet" href="assets/css/custom-overrides.css" />
 </head>
 
 <body>
-  <!--  Body Wrapper -->
+  
   <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
     data-sidebar-position="fixed" data-header-position="fixed">
     <div
@@ -24,30 +24,29 @@
                 <a href="./index.php" class="text-nowrap logo-img text-center d-block py-3 w-100">
                   <img src="assets/images/logos/logo.svg" alt="">
                 </a>
-                <p class="text-center">Your Social Campaigns</p>
-                <form>
+
+
+                <p class="text-center">Bienvenido</p>
+                <form action="validar_login.php" method="POST">
                   <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Username</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <label for="correo_usuario" class="form-label">Usuario</label>
+                    <input type="email" name= "usuario" class="form-control" id="correo_usuario" aria-describedby="emailHelp">
                   </div>
                   <div class="mb-4">
-                    <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
+                    <label for="clave_usuario" class="form-label">Contraseña</label>
+                    <input type="password" name= "clave" class="form-control" id="clave_usuario">
                   </div>
                   <div class="d-flex align-items-center justify-content-between mb-4">
+                    <!-- HAY QUE VER COMO HACER ESO LUEGOOOOO -->
                     <div class="form-check">
                       <input class="form-check-input primary" type="checkbox" value="" id="flexCheckChecked" checked>
                       <label class="form-check-label text-dark" for="flexCheckChecked">
-                        Remeber this Device
+                        Recuerde este dispositivo
                       </label>
                     </div>
-                    <a class="text-primary fw-bold" href="./index.php">Forgot Password ?</a>
+                    <a class="text-primary fw-bold" href="./index.php">Olvidaste tu contraseña ?</a>
                   </div>
-                  <a href="./index.php" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">Sign In</a>
-                  <div class="d-flex align-items-center justify-content-center">
-                    <p class="fs-4 mb-0 fw-bold">New to Modernize?</p>
-                    <a class="text-primary fw-bold ms-2" href="./authentication-register.php">Create an account</a>
-                  </div>
+                  <button type="submit" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">Iniciar</button>
                 </form>
               </div>
             </div>
