@@ -19,7 +19,7 @@
       <!-- Sidebar scroll-->
       <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
-          <a href="./index.html" class="text-nowrap logo-img">
+          <a href="./index.php" class="text-nowrap logo-img">
             <img src="assets/images/logos/logo.svg" alt="" />
           </a>
           <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
@@ -34,7 +34,7 @@
               <span class="hide-menu">Home</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./index.html" aria-expanded="false">
+              <a class="sidebar-link" href="./index.php" aria-expanded="false">
                 <i class="ti ti-atom"></i>
                 <span class="hide-menu">Dashboard</span>
               </a>
@@ -64,31 +64,31 @@
               <span class="hide-menu">UI</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-buttons.html" aria-expanded="false">
+              <a class="sidebar-link" href="./ui-buttons.php" aria-expanded="false">
                 <i class="ti ti-layers-subtract"></i>
                 <span class="hide-menu">Buttons</span>
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-alerts.html" aria-expanded="false">
+              <a class="sidebar-link" href="./ui-alerts.php" aria-expanded="false">
                 <i class="ti ti-alert-circle"></i>
                 <span class="hide-menu">Alerts</span>
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-card.html" aria-expanded="false">
+              <a class="sidebar-link" href="./ui-card.php" aria-expanded="false">
                 <i class="ti ti-cards"></i>
                 <span class="hide-menu">Card</span>
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-forms.html" aria-expanded="false">
+              <a class="sidebar-link" href="./ui-forms.php" aria-expanded="false">
                 <i class="ti ti-file-text"></i>
                 <span class="hide-menu">Forms</span>
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-typography.html" aria-expanded="false">
+              <a class="sidebar-link" href="./ui-typography.php" aria-expanded="false">
                 <i class="ti ti-typography"></i>
                 <span class="hide-menu">Typography</span>
               </a>
@@ -309,13 +309,13 @@
               <span class="hide-menu">Auth</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./authentication-login.html" aria-expanded="false">
+              <a class="sidebar-link" href="./authentication-login.php" aria-expanded="false">
                 <i class="ti ti-login"></i>
                 <span class="hide-menu">Login</span>
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./authentication-register.html" aria-expanded="false">
+              <a class="sidebar-link" href="./authentication-register.php" aria-expanded="false">
                 <i class="ti ti-user-plus"></i>
                 <span class="hide-menu">Register</span>
               </a>
@@ -341,13 +341,13 @@
               <span class="hide-menu">Extra</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./icon-tabler.html" aria-expanded="false">
+              <a class="sidebar-link" href="./icon-tabler.php" aria-expanded="false">
                 <i class="ti ti-archive"></i>
                 <span class="hide-menu">Tabler Icon</span>
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./sample-page.html" aria-expanded="false">
+              <a class="sidebar-link" href="./sample-page.php" aria-expanded="false">
                 <i class="ti ti-file"></i>
                 <span class="hide-menu">Sample Page</span>
               </a>
@@ -361,7 +361,7 @@
               <span class="hide-menu">Exámenes</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./examen-historia.html" aria-expanded="false">
+              <a class="sidebar-link" href="./examen-historia.php" aria-expanded="false">
                 <i class="ti ti-school"></i>
                 <span class="hide-menu">Historia de México</span>
               </a>
@@ -422,7 +422,7 @@
                       <i class="ti ti-list-check fs-6"></i>
                       <p class="mb-0 fs-3">My Task</p>
                     </a>
-                    <a href="./authentication-login.html" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
+                    <a href="./authentication-login.php" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
                   </div>
                 </div>
               </li>
@@ -435,54 +435,33 @@
         <div class="container-fluid">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title fw-semibold mb-4">Forms</h5>
-              <div class="card">
-                <div class="card-body">
-                  <form>
-                    <div class="mb-3">
-                      <label for="exampleInputEmail1" class="form-label">Email address</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                    </div>
-                    <div class="mb-3">
-                      <label for="exampleInputPassword1" class="form-label">Password</label>
-                      <input type="password" class="form-control" id="exampleInputPassword1">
-                    </div>
-                    <div class="mb-3 form-check">
-                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                      <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                  </form>
-                </div>
-              </div>
-              <h5 class="card-title fw-semibold mb-4">Disabled forms</h5>
+              <h5 class="card-title fw-semibold mb-4">Alerts</h5>
               <div class="card mb-0">
-                <div class="card-body">
-                  <form>
-                    <fieldset disabled>
-                      <legend>Disabled fieldset example</legend>
-                      <div class="mb-3">
-                        <label for="disabledTextInput" class="form-label">Disabled input</label>
-                        <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
-                      </div>
-                      <div class="mb-3">
-                        <label for="disabledSelect" class="form-label">Disabled select menu</label>
-                        <select id="disabledSelect" class="form-select">
-                          <option>Disabled select</option>
-                        </select>
-                      </div>
-                      <div class="mb-3">
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" id="disabledFieldsetCheck" disabled>
-                          <label class="form-check-label" for="disabledFieldsetCheck">
-                            Can't check this
-                          </label>
-                        </div>
-                      </div>
-                      <button type="submit" class="btn btn-primary">Submit</button>
-                    </fieldset>
-                  </form>
+                <div class="card-body p-4">
+                  <div class="alert alert-primary" role="alert">
+                    A simple primary alert—check it out!
+                  </div>
+                  <div class="alert alert-secondary" role="alert">
+                    A simple secondary alert—check it out!
+                  </div>
+                  <div class="alert alert-success" role="alert">
+                    A simple success alert—check it out!
+                  </div>
+                  <div class="alert alert-danger" role="alert">
+                    A simple danger alert—check it out!
+                  </div>
+                  <div class="alert alert-warning" role="alert">
+                    A simple warning alert—check it out!
+                  </div>
+                  <div class="alert alert-info" role="alert">
+                    A simple info alert—check it out!
+                  </div>
+                  <div class="alert alert-light" role="alert">
+                    A simple light alert—check it out!
+                  </div>
+                  <div class="alert alert-dark" role="alert">
+                    A simple dark alert—check it out!
+                  </div>
                 </div>
               </div>
             </div>
