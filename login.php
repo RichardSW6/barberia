@@ -27,10 +27,10 @@
 
 
                 <p class="text-center">Bienvenido</p>
-                <form action="validar_login.php" method="POST">
+                <form action="sql/validar_login.php" method="POST">
                   <div class="mb-3">
                     <label for="correo_usuario" class="form-label">Usuario</label>
-                    <input type="email" name= "usuario" class="form-control" id="correo_usuario" aria-describedby="emailHelp">
+                    <input type="text" name= "usuario" class="form-control" id="correo_usuario" aria-describedby="emailHelp">
                   </div>
                   <div class="mb-4">
                     <label for="clave_usuario" class="form-label">Contraseña</label>

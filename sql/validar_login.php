@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = $conexion->query("SELECT * FROM usuarios WHERE usuario = '$user' AND clave = '$pass'");
 
    if ($datos = $sql->fetch_object()) {
-        header("location: index.php");
+        header("location:../index.php");
         exit();
     } else {
         $error_login = "Usuario o contraseña incorrectos";

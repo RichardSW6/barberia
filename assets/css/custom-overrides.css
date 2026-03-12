@@ -20,6 +20,36 @@
   }
 }
 
+@media (prefers-color-scheme: dark) {
+    body, 
+    .page-wrapper, 
+    .position-relative.overflow-hidden {
+        background-color: #1a1c23 !important;
+    }
+
+    .card {
+        background-color: #212529 !important; 
+        border: 1px solid #343a40 !important;
+    }
+
+    .form-label, 
+    .card-body p, 
+    .card-body .text-center {
+        color: #f8f9fa !important; 
+    }
+
+    .form-control, .form-select {
+        background-color: #2b3035 !important;
+        border-color: #495057 !important;
+        color: #ffffff !important;
+    }
+}
+
+.card-body p.text-center {
+    font-weight: 900 !important; /* El nivel más alto de negrita */
+    font-size: 1.2rem; /* Lo hace un poquito más grande */
+}
+
 /* El sidebar ya no necesita desplazarse por el topstrip */
 #main-wrapper[data-layout="vertical"][data-sidebar-position="fixed"]
   .left-sidebar {
