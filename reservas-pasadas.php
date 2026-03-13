@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 
 <head>
@@ -8,6 +8,10 @@
     <link rel="shortcut icon" type="image/png" href="assets/images/logos/favicon.png" />
     <link rel="stylesheet" href="assets/css/styles.min.css" />
     <link rel="stylesheet" href="assets/css/custom-overrides.css" />
+  <!-- Anti-FOUC: aplicar tema antes del render -->
+  <script>
+    (function(){var s=localStorage.getItem('barberaTheme');var mq=window.matchMedia('(prefers-color-scheme: dark)');document.documentElement.setAttribute('data-theme',s==='dark'?'dark':s==='light'?'light':mq.matches?'dark':'light');})();
+  </script>
 </head>
 
 <body>

@@ -101,6 +101,11 @@ $paginaActual = basename($_SERVER['PHP_SELF']);
             </ul>
             <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
                 <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
+                    <li class="nav-item">
+                        <button id="theme-toggle" aria-label="Cambiar tema" title="Modo oscuro / claro">
+                            <i class="ti ti-moon"></i>
+                        </button>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
                             aria-expanded="false">
