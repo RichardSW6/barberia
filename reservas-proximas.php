@@ -97,11 +97,37 @@ require_once 'sql/conexion.php';
                     </div>
                 </div>
 
+                <!-- Barra de búsqueda y filtros -->
+                <div class="card mb-3">
+                    <div class="card-body py-2">
+                        <div class="row g-2 align-items-center">
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="ti ti-search"></i></span>
+                                    <input type="text" id="buscarReserva" class="form-control" placeholder="Buscar por cliente, barbero, teléfono...">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <select id="filtroEstado" class="form-select">
+                                    <option value="">Todos los estados</option>
+                                    <option>pendiente</option>
+                                    <option>confirmada</option>
+                                    <option>cancelada</option>
+                                    <option>completada</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3 text-end">
+                                <span id="contadorReservas" class="text-muted small"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Tabla -->
                 <div class="card">
                     <div class="card-body p-0">
                         <div class="table-responsive">
-                            <table class="table table-hover align-middle mb-0">
+                            <table class="table table-hover align-middle mb-0" id="tablaReservas">
                                 <thead class="table-light">
                                     <tr>
                                         <th>Cliente</th>
@@ -177,6 +203,33 @@ require_once 'sql/conexion.php';
     <script src="assets/js/sidebarmenu.js"></script>
     <script src="assets/js/app.min.js"></script>
     <script src="assets/libs/simplebar/dist/simplebar.js"></script>
+    <script>
+      (function () {
+        var buscar   = document.getElementById('buscarReserva');
+        var filtro   = document.getElementById('filtroEstado');
+        var contador = document.getElementById('contadorReservas');
+        var tabla    = document.querySelector('#tablaReservas tbody');
+
+        function filtrar() {
+          var q      = buscar.value.toLowerCase();
+          var estado = filtro.value.toLowerCase();
+          var filas  = tabla.querySelectorAll('tr');
+          var visibles = 0;
+          filas.forEach(function (fila) {
+            var texto       = fila.textContent.toLowerCase();
+            var celdaEstado = fila.cells[4] ? fila.cells[4].textContent.toLowerCase() : '';
+            var ok = texto.includes(q) && (estado === '' || celdaEstado.includes(estado));
+            fila.style.display = ok ? '' : 'none';
+            if (ok) visibles++;
+          });
+          contador.textContent = visibles + ' cita(s)';
+        }
+
+        buscar.addEventListener('input', filtrar);
+        filtro.addEventListener('change', filtrar);
+        filtrar();
+      })();
+    </script>
 </body>
 
 </html>

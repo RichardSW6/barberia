@@ -1,4 +1,5 @@
-﻿<!doctype html>
+<?php session_start(); ?>
+<!doctype html>
 <html lang="en">
 
 <head>
@@ -27,6 +28,15 @@
 
 
                 <p class="text-center">Bienvenido</p>
+                <?php if (!empty($_GET['error'])): ?>
+                  <div class="alert alert-danger py-2 text-center" role="alert">
+                    <?php if ($_GET['error'] === 'credenciales'): ?>
+                      Usuario o contraseña incorrectos.
+                    <?php elseif ($_GET['error'] === 'campos'): ?>
+                      Por favor completa todos los campos.
+                    <?php endif; ?>
+                  </div>
+                <?php endif; ?>
                 <form action="sql/validar_login.php" method="POST">
                   <div class="mb-3">
                     <label for="correo_usuario" class="form-label">Usuario</label>
