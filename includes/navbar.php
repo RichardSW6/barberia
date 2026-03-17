@@ -1,6 +1,7 @@
 <?php
 // Detectar la página actual para marcar el link activo
 $paginaActual = basename($_SERVER['PHP_SELF']);
+date_default_timezone_set('America/Mexico_City');
 ?>
 
 <!-- ========== Sidebar Start ========== -->
@@ -67,6 +68,13 @@ $paginaActual = basename($_SERVER['PHP_SELF']);
                         <span class="hide-menu">Empleados</span>
                     </a>
                 </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link <?= ($paginaActual == 'usuarios.php') ? 'active' : '' ?>"
+                        href="./usuarios.php" aria-expanded="false">
+                        <i class="ti ti-user"></i>
+                        <span class="hide-menu">Usuarios</span>
+                    </a>
+                </li>
 
 
             </ul>
@@ -101,6 +109,37 @@ $paginaActual = basename($_SERVER['PHP_SELF']);
             </ul>
             <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
                 <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
+                    <li class="nav-item d-flex align-items-center me-2">
+                        <span id="reloj-navbar" style="
+                            font-family: 'Courier New', monospace;
+                            font-size: 1.05rem;
+                            font-weight: 700;
+                            letter-spacing: 2px;
+                            padding: 4px 12px;
+                            border-radius: 8px;
+                            background: var(--bs-primary-bg-subtle, rgba(93,135,255,.12));
+                            color: var(--bs-primary, #5d87ff);
+                            border: 1px solid var(--bs-primary, #5d87ff);
+                            line-height: 1;
+                            min-width: 100px;
+                            text-align: center;
+                            user-select: none;
+                        ">00:00</span>
+                        <script>
+                            (function () {
+                                function actualizarReloj() {
+                                    var ahora = new Date();
+                                    var h = String(ahora.getHours()).padStart(2, '0');
+                                    var m = String(ahora.getMinutes()).padStart(2, '0');
+                                    var s = String(ahora.getSeconds()).padStart(2, '0');
+                                    var el = document.getElementById('reloj-navbar');
+                                    if (el) el.textContent = h + ':' + m + ':' + s;
+                                }
+                                actualizarReloj();
+                                setInterval(actualizarReloj, 1000);
+                            })();
+                        </script>
+                    </li>
                     <li class="nav-item">
                         <button id="theme-toggle" aria-label="Cambiar tema" title="Modo oscuro / claro">
                             <i class="ti ti-moon"></i>

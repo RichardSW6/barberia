@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 
 <head>
@@ -8,17 +8,21 @@
     <link rel="shortcut icon" type="image/png" href="assets/images/logos/favicon.png" />
     <link rel="stylesheet" href="assets/css/styles.min.css" />
     <link rel="stylesheet" href="assets/css/custom-overrides.css" />
-  <!-- Anti-FOUC: aplicar tema antes del render -->
-  <script>
-    (function(){var s=localStorage.getItem('barberaTheme');var mq=window.matchMedia('(prefers-color-scheme: dark)');document.documentElement.setAttribute('data-theme',s==='dark'?'dark':s==='light'?'light':mq.matches?'dark':'light');})();
-  </script>
+    <!-- Anti-FOUC: aplicar tema antes del render -->
+    <script>
+        (function () { var s = localStorage.getItem('barberaTheme'); var mq = window.matchMedia('(prefers-color-scheme: dark)'); document.documentElement.setAttribute('data-theme', s === 'dark' ? 'dark' : s === 'light' ? 'light' : mq.matches ? 'dark' : 'light'); })();
+    </script>
+
 </head>
+
+<?php
+require_once 'includes/navbar.php';
+require_once 'sql/conexion.php';
+?>
 
 <body>
     <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
         data-sidebar-position="fixed" data-header-position="fixed">
-        <?php require_once 'includes/navbar.php'; ?>
-
         <div class="body-wrapper-inner">
             <div class="container-fluid">
 
@@ -100,68 +104,64 @@
                             <table class="table table-hover align-middle mb-0">
                                 <thead class="table-light">
                                     <tr>
-                                        <th class="ps-4">#</th>
                                         <th>Cliente</th>
-                                        <th>Servicio</th>
                                         <th>Barbero</th>
-                                        <th>Fecha</th>
-                                        <th>Hora</th>
+                                        <th>Fecha y Hora</th>
+                                        <th>Telefono cliente</th>
                                         <th>Estado</th>
                                         <th class="text-center">Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $reservas = [
-                                        [1, 'Carlos Mendoza', 'Corte de pelo', 'Juan López', '2026-03-07', '09:00', 'confirmada'],
-                                        [2, 'Luis Pérez', 'Barba', 'Pedro Ramírez', '2026-03-07', '09:30', 'confirmada'],
-                                        [3, 'Mario García', 'Corte + Barba', 'Juan López', '2026-03-07', '10:30', 'pendiente'],
-                                        [4, 'Roberto Soto', 'Afeitado', 'Luis Herrera', '2026-03-07', '11:00', 'confirmada'],
-                                        [5, 'Héctor Ruiz', 'Corte de pelo', 'Pedro Ramírez', '2026-03-08', '09:00', 'pendiente'],
-                                        [6, 'Andrés Torres', 'Cuidado de barba', 'Juan López', '2026-03-08', '10:00', 'confirmada'],
-                                        [7, 'Jorge Morales', 'Barba', 'Luis Herrera', '2026-03-09', '11:30', 'pendiente'],
-                                        [8, 'Sergio Ibáñez', 'Corte de pelo', 'Pedro Ramírez', '2026-03-10', '09:00', 'confirmada'],
-                                        [9, 'Fernando Díaz', 'Afeitado', 'Juan López', '2026-03-11', '08:30', 'cancelada'],
-                                        [10, 'Ramón Castro', 'Corte + Barba', 'Luis Herrera', '2026-03-12', '10:00', 'confirmada'],
-                                    ];
 
                                     $badges = [
-                                        'confirmada' => 'bg-success-subtle text-success',
                                         'pendiente' => 'bg-warning-subtle text-warning',
+                                        'confirmada' => 'bg-success-subtle text-success',
                                         'cancelada' => 'bg-danger-subtle text-danger',
+                                        'completada' => 'bg-primary-subtle text-primary',
                                     ];
 
-                                    foreach ($reservas as $r): ?>
+                                    $fechaHoy = date('Y-m-d');
+                                    $resultado = mysqli_query($conexion, "SELECT c.id_cita, c.fecha_hora, c.estado,
+                                                                                   c2.nombre AS nombre_cliente, c2.apellido AS apellido_cliente, c2.telefono,
+                                                                                   b.nombre AS nombre_barbero
+                                                                            FROM citas c
+                                                                            INNER JOIN clientes c2 ON c.id_cliente = c2.id_cliente
+                                                                            INNER JOIN empleados b ON c.id_barbero = b.id_empleado
+                                                                            WHERE c.fecha_hora >= '$fechaHoy 00:00:00'
+                                                                            AND c.fecha_hora <= '$fechaHoy 23:59:59'
+                                                                            ORDER BY c.fecha_hora ASC");
+
+                                    if (mysqli_num_rows($resultado) === 0): ?>
                                         <tr>
-                                            <td class="ps-4 text-muted">#
-                                                <?= $r[0] ?>
-                                            </td>
-                                            <td class="fw-semibold">
-                                                <?= $r[1] ?>
-                                            </td>
-                                            <td>
-                                                <?= $r[2] ?>
-                                            </td>
-                                            <td>
-                                                <?= $r[3] ?>
-                                            </td>
-                                            <td>
-                                                <?= date('d/m/Y', strtotime($r[4])) ?>
-                                            </td>
-                                            <td><span class="badge bg-light-primary text-primary fw-semibold">
-                                                    <?= $r[5] ?>
-                                                </span></td>
-                                            <td><span class="badge <?= $badges[$r[6]] ?>">
-                                                    <?= ucfirst($r[6]) ?>
-                                                </span></td>
-                                            <td class="text-center">
-                                                <button class="btn btn-sm btn-outline-primary me-1" title="Editar"><i
-                                                        class="ti ti-pencil"></i></button>
-                                                <button class="btn btn-sm btn-outline-danger" title="Cancelar"><i
-                                                        class="ti ti-x"></i></button>
+                                            <td colspan="6" class="text-center py-5 text-muted">
+                                                <i class="ti ti-calendar-off fs-1 d-block mb-2"></i>
+                                                No hay citas agendadas para el día de hoy.
                                             </td>
                                         </tr>
-                                    <?php endforeach; ?>
+                                    <?php else:
+                                        while ($r = mysqli_fetch_assoc($resultado)) { ?>
+                                            <tr>
+                                                <td class="fw-semibold"><?= htmlspecialchars($r['nombre_cliente'] . ' ' . $r['apellido_cliente']) ?></td>
+                                                <td><?= htmlspecialchars($r['nombre_barbero']) ?></td>
+                                                <td><?= date('d/m/Y H:i', strtotime($r['fecha_hora'])) ?></td>
+                                                <td>
+                                                    <span class="badge <?= $badges[$r['estado']] ?? 'bg-secondary' ?>">
+                                                        <?= ucfirst($r['estado']) ?>
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    <?= htmlspecialchars($r['telefono']) ?>
+                                                </td>
+                                                <td class="text-center">
+                                                    <button class="btn btn-sm btn-outline-primary me-1" title="Editar"><i
+                                                            class="ti ti-pencil"></i></button>
+                                                    <button class="btn btn-sm btn-outline-danger" title="Cancelar"><i
+                                                            class="ti ti-x"></i></button>
+                                                </td>
+                                            </tr>
+                                        <?php }endif; ?>
                                 </tbody>
                             </table>
                         </div>
